@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="grip">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0106772900713487 -0.1710070387097 -1.87200468439584E-09"
+        rpy="0 0 0" />
+      <mass
+        value="2.74541777293957" />
+      <inertia
+        ixx="0.00382413685264724"
+        ixy="-2.98374022975497E-06"
+        ixz="2.39860933769004E-11"
+        iyy="0.00600053273897555"
+        iyz="3.32504351244898E-10"
+        izz="0.00379898220168142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="blue">
+        <color
+          rgba="1 1 .8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prismatic_link">
+    <inertial>
+      <origin
+        xyz="0.0127640697422493 0.0463525957052715 0.0842638148201117"
+        rpy="0 0 0" />
+      <mass
+        value="0.070294666005926" />
+      <inertia
+        ixx="2.40037641064892E-05"
+        ixy="-3.46482664427356E-06"
+        ixz="-1.11014741540259E-08"
+        iyy="1.2375403757174E-05"
+        iyz="-4.03522045563068E-08"
+        izz="2.80885088048895E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/prismatic_link.STL" />
+      </geometry>
+      <material
+        name="nose">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/prismatic_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="prismatic_joint"
+    type="prismatic">
+    <origin
+      xyz="0.010624 0 0.042944"
+      rpy="-3.1416 0 -1.8395" />
+    <parent
+      link="base_link" />
+    <child
+      link="prismatic_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.03"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+
+  <link
+    name="rotate1_link">
+    <inertial>
+      <origin
+        xyz="0.0492358258451967 0.0168319497489518 1.65217665937245E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.108807423101855" />
+      <inertia
+        ixx="1.8033260032552E-05"
+        ixy="-4.18158902541371E-08"
+        ixz="-6.19823636436901E-12"
+        iyy="0.000112008922993143"
+        iyz="4.39702449137292E-17"
+        izz="0.000105065651157087" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/rotate1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sg/meshes/rotate1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="rotate1_joint"
+    type="revolute">
+    <origin
+      xyz="0.01779 0.064603 0.09825"
+      rpy="1.5708 0 1.8656" />
+    <parent
+      link="prismatic_link" />
+    <child
+      link="rotate1_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2"
+      upper="1"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+
+  <link
+    name="rotate2_link">
+    <inertial>
+      <origin
+        xyz="0.00086476424561344 -0.00162723281599192 0.00757252072679243"
+        rpy="0 0 0" />
+      <mass
+        value="0.0561685872042524" />
+      <inertia
+        ixx="2.7382969834396E-05"
+        ixy="-3.4669972679723E-08"
+        ixz="2.06077710897114E-07"
+        iyy="3.07387598441115E-05"
+        iyz="9.82303892347549E-08"
+        izz="6.29807798586307E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="rotate2_joint"
+    type="revolute">
+    <origin
+      xyz="0.09 0.0495 0"
+      rpy="-3.1416 -0.66095 3.1416" />
+    <parent
+      link="rotate1_link" />
+    <child
+      link="rotate2_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0.50"
+      upper="-2.50"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="rotate3_link">
+    <inertial>
+      <origin
+        xyz="-0.00451463619452523 0.0120910315552283 0.00250000004769779"
+        rpy="0 0 0" />
+      <mass
+        value="0.00255992418605876" />
+      <inertia
+        ixx="5.12494850815877E-07"
+        ixy="6.65037857609151E-08"
+        ixz="4.23599489143556E-16"
+        iyy="1.27933754251935E-07"
+        iyz="-1.53834621949602E-16"
+        izz="6.29907867097713E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotate3_joint"
+    type="revolute">
+    <origin
+      xyz="0.0093336 0.0165 -0.060971"
+      rpy="3.1416 0 2.6543" />
+    <parent
+      link="rotate2_link" />
+    <child
+      link="rotate3_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.51"
+      upper="0"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="rotate4_link">
+    <inertial>
+      <origin
+        xyz="-0.0011767487651098 0.0135338945493889 0.00249999780162471"
+        rpy="0 0 0" />
+      <mass
+        value="0.00265621110159474" />
+      <inertia
+        ixx="5.52061946815856E-07"
+        ixy="-3.97418889132207E-08"
+        ixz="-2.64831638629068E-14"
+        iyy="1.29055482093686E-07"
+        iyz="-4.99182945889298E-14"
+        izz="6.70195998052915E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip/meshes/rotate4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotate4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0090778 0.01666 -0.065971"
+      rpy="0 0 0.77025" />
+    <parent
+      link="rotate2_link" />
+    <child
+      link="rotate4_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.51"
+      upper="0"
+      effort="1000.0"
+      velocity="0.5" />
+  </joint>
+</robot>
